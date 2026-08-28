@@ -35,8 +35,25 @@ Descargar GIT del [enlace](https://git-scm.com/install/windows)
 
 Loguearse
 
-    >
-    >
+    > git config --global user.name "Angelo de Paz"
+    > git config --global user.email "angelo@email.com"
+
+
+Crear rama
+
+    > git checkout -b feature/prueba
+
+Ver rama
+
+    >  git branch
+
+Cambiar rama
+
+    > git checkout #nombre_rama
+
+Cambiar a commit
+
+    > git reset --hard #commit
 
 Instalar dependencias:
 
