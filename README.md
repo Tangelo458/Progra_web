@@ -59,6 +59,9 @@ Instalar dependencias:
 
     > npm install
 
+Cambiar remote
+
+    > git remote set-url origin git@github.com:Tangelo458/Progra_web.git
 
 npm install -g vercel
 vercel login
