@@ -4,6 +4,7 @@ import * as admins from '../controllers/admin_controllers.js';
 import * as nationApis from '../apis/nations_apis.js';
 import { redirectIfAuthenticated, requireAuth } from '../../configs/middlewares.js'; 
 import * as carrers from '../controllers/carrer_controller.js';
+import * as students from '../controllers/students_controllers.js';
 const router = Router();
 
 
@@ -23,4 +24,8 @@ router.delete('/api/v1/nations/:id', nationApis.deleteNation);
 
 // carrers
 router.get('/admin/carrers',carrers.home);
+
+
+//students
+router.get('/admin/students',students.home);
 export default router;
