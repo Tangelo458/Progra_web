@@ -1,0 +1,58 @@
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background-image: url("/assets/img/fondo.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .form {
+            width: 385px;
+            background-color: rgba(255, 255, 255, 0.9);
+            margin: 0 auto;
+            margin-top: 80px;
+            padding: 50px;
+            padding-top: 10px;
+        }
+
+        .logoUlima {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .izquierda {
+            text-align: left;
+        }
+
+        .justificado {
+            text-align: justify;
+        }
+
+        .input {
+            border: #343434 1px solid;
+            border-radius: 3px;
+            padding: 10px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0);
+            box-sizing: border-box;
+        }
+        .btn{
+            width: 95%;
+            border-radius: 0px;
+            background: #121314;
+            padding: 10px;
+            color: #ffffff;
+        }
+        .p-10{
+            padding: 10px;
+        }
+        .fondo-gris{
+            background: dimgrey;
+        }

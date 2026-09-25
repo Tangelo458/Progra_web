@@ -27,6 +27,15 @@ export function contact(req, res) {
   });
 }
 
+  export function jobs(req, res) {
+  return res.render('website/jobs', {
+  title: 'Bolsa de Trabajo',
+  currentPage: 'jobs',
+  description: 'Encuentra oportunidades laborales.',
+  });
+  }
+
+
 export function players(req, res) {
   return res.render('website/players', {
     title: 'Acerca de',
@@ -42,7 +51,27 @@ export function signIn(req, res) {
   });
 }
 
-export async function login(req, res) {
+export function login(req, res) {
+  let fondos = [
+    "/assets/img/fondo.png",
+    "/assets/img/fondo2.png",
+    "/assets/img/fondo3.jpg"
+  ];
+  return res.render('website/login', {
+    title: 'Bienvenidos',
+    background: fondos[Math.floor(Math.random() * 3)]
+  });
+}
+
+export function resetPassword(req, res) {
+  return res.render('website/reset-password', {
+    title: 'Recuperar Contraseña',
+  });
+}
+
+
+
+export async function login2(req, res) {
   const { user, password } = req.body;
   const validUser = process.env.DEFAULT_USER || 'admin';
   const validPassword = process.env.DEFAULT_PASSWORD || '123';

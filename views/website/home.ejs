@@ -1,884 +1,1576 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Ingeniería de Sistemas</title>
-
-    <!-- Bootstrap 5 -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet">
-
-    <!-- Bootstrap Icons -->
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <style>
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8fafc;
-        }
-
-        /* NAVBAR */
-
-        .navbar {
-            background-color: #0f172a;
-        }
-
-        .navbar-brand {
-            font-weight: bold;
-            color: #38bdf8 !important;
-        }
-
-        .nav-link {
-            color: white !important;
-            margin-left: 15px;
-        }
-
-        .nav-link:hover {
-            color: #38bdf8 !important;
-        }
-
-        /* HERO */
-
-        .hero {
-            min-height: 90vh;
-
-            background:
-                linear-gradient(
-                    rgba(15, 23, 42, 0.85),
-                    rgba(15, 23, 42, 0.9)
-                ),
-                url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80");
-
-            background-size: cover;
-            background-position: center;
-
-            display: flex;
-            align-items: center;
-
-            color: white;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 800;
-        }
-
-        .hero h1 span {
-            color: #38bdf8;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #cbd5e1;
-            max-width: 650px;
-        }
-
-        .btn-main {
-            background-color: #0ea5e9;
-            border: none;
-            color: white;
-            padding: 12px 25px;
-        }
-
-        .btn-main:hover {
-            background-color: #0284c7;
-            color: white;
-        }
-
-        /* SECCIONES */
-
-        .section-title {
-            font-weight: 700;
-            color: #0f172a;
-        }
-
-        /* CARDS */
-
-        .service-card {
-            border: none;
-            border-radius: 15px;
-            padding: 30px;
-            height: 100%;
-            transition: 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
-        }
-
-        .icon {
-            width: 65px;
-            height: 65px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            background-color: #e0f2fe;
-            color: #0284c7;
-
-            border-radius: 15px;
-
-            font-size: 30px;
-
-            margin-bottom: 20px;
-        }
-
-        /* ESTADISTICAS */
-
-        .statistics {
-            background-color: #0f172a;
-            color: white;
-        }
-
-        .number {
-            font-size: 40px;
-            font-weight: bold;
-            color: #38bdf8;
-        }
-
-        /* ABOUT */
-
-        .about-img {
-            border-radius: 20px;
-            width: 100%;
-        }
-
-        /* CTA */
-
-        .cta {
-            background: linear-gradient(
-                135deg,
-                #0284c7,
-                #0f172a
-            );
-
-            color: white;
-            border-radius: 25px;
-        }
-
-        /* FOOTER */
-
-        footer {
-            background-color: #020617;
-            color: #94a3b8;
-        }
-
-    </style>
-
-</head>
-
-
-<body>
-
-
-<!-- ================= NAVBAR ================= -->
-
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-
-    <div class="container">
-
-        <a class="navbar-brand" href="#">
-            <i class="bi bi-cpu"></i>
-            Ingeniería de Sistemas
-        </a>
-
-
-        <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#menu">
-
-            <span class="navbar-toggler-icon"></span>
-
-        </button>
-
-
-        <div class="collapse navbar-collapse" id="menu">
-
-            <ul class="navbar-nav ms-auto">
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#inicio">
-                        Inicio
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#especialidades">
-                        Especialidades
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#nosotros">
-                        Nosotros
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#contacto">
-                        Contacto
-                    </a>
-                </li>
-
-            </ul>
-
-            <a href="#contacto"
-               class="btn btn-main ms-lg-3">
-
-                Conoce más
-
-            </a>
-
-        </div>
+<!-- views/website/home.ejs -->
+
+<% layout("layouts/website") %>
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="bg-dark text-white">
+
+  <div
+    id="heroCarousel"
+    class="carousel slide carousel-fade"
+    data-bs-ride="carousel"
+    data-bs-interval="5000">
+
+    <!-- Indicadores -->
+    <div class="carousel-indicators">
+
+      <button
+        type="button"
+        data-bs-target="#heroCarousel"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1">
+      </button>
+
+      <button
+        type="button"
+        data-bs-target="#heroCarousel"
+        data-bs-slide-to="1"
+        aria-label="Slide 2">
+      </button>
+
+      <button
+        type="button"
+        data-bs-target="#heroCarousel"
+        data-bs-slide-to="2"
+        aria-label="Slide 3">
+      </button>
 
     </div>
 
-</nav>
+
+    <!-- =====================================================
+         SLIDES
+    ====================================================== -->
+
+    <div class="carousel-inner">
 
 
+      <!-- SLIDE 1 -->
+      <div class="carousel-item active">
 
-<!-- ================= HERO ================= -->
+        <div
+          class="container-fluid"
+          style="
+            min-height: 600px;
+            background:
+              linear-gradient(
+                90deg,
+                rgba(0,0,0,.90),
+                rgba(0,0,0,.60),
+                rgba(0,0,0,.30)
+              ),
+              url('/assets/img/slider-1.jpg')
+              center/cover;
+          ">
 
-<section id="inicio" class="hero">
+          <div
+            class="container d-flex align-items-center"
+            style="min-height: 600px;">
 
-    <div class="container">
+            <div class="row w-100">
 
-        <div class="row">
+              <div class="col-lg-7">
 
-            <div class="col-lg-8">
+                <span class="badge bg-success mb-3 px-3 py-2">
 
-                <span class="badge bg-info text-dark mb-3 p-2">
+                  <i class="bi bi-mortarboard-fill me-1"></i>
 
-                    TECNOLOGÍA • INNOVACIÓN • FUTURO
+                  BOLSA DE TRABAJO UNIVERSITARIA
 
                 </span>
 
 
-                <h1>
+                <h1 class="display-3 fw-bold mb-4">
 
-                    Ingeniería de
-                    <span>Sistemas</span>
+                  Encuentra tu próxima
+                  <span class="text-success">
+                    oportunidad
+                  </span>
 
                 </h1>
 
 
-                <p class="mt-4">
+                <p class="lead text-light mb-4">
 
-                    Aprende a diseñar, desarrollar e implementar
-                    soluciones tecnológicas que transforman
-                    empresas y mejoran la vida de las personas.
+                  Conecta con empresas, encuentra prácticas
+                  profesionales y descubre oportunidades
+                  laborales pensadas para estudiantes
+                  universitarios.
 
                 </p>
 
 
-                <div class="mt-4">
+                <div class="d-flex flex-wrap gap-2">
 
-                    <a href="#especialidades"
-                       class="btn btn-main btn-lg me-2">
+                  <a
+                    href="/jobs"
+                    class="btn btn-success btn-lg px-4">
 
-                        Explorar especialidades
+                    <i class="bi bi-search me-2"></i>
 
-                    </a>
+                    Buscar ofertas
+
+                  </a>
 
 
-                    <a href="#nosotros"
-                       class="btn btn-outline-light btn-lg">
+                  <a
+                    href="/register"
+                    class="btn btn-outline-light btn-lg px-4">
 
-                        Conocer la carrera
+                    <i class="bi bi-person-plus me-2"></i>
 
-                    </a>
+                    Crear perfil
+
+                  </a>
 
                 </div>
 
+              </div>
+
             </div>
+
+          </div>
 
         </div>
 
-    </div>
+      </div>
 
-</section>
 
+      <!-- =====================================================
+           SLIDE 2
+      ====================================================== -->
 
+      <div class="carousel-item">
 
-<!-- ================= ESPECIALIDADES ================= -->
+        <div
+          class="container-fluid"
+          style="
+            min-height: 600px;
+            background:
+              linear-gradient(
+                90deg,
+                rgba(0,0,0,.90),
+                rgba(0,0,0,.60),
+                rgba(0,0,0,.30)
+              ),
+              url('/assets/img/slider-2.jpg')
+              center/cover;
+          ">
 
-<section id="especialidades" class="py-5">
+          <div
+            class="container d-flex align-items-center"
+            style="min-height: 600px;">
 
-    <div class="container py-5">
+            <div class="row w-100">
 
-        <div class="text-center mb-5">
+              <div class="col-lg-7">
 
-            <h2 class="section-title">
+                <span class="badge bg-success mb-3 px-3 py-2">
 
-                Áreas de especialización
+                  <i class="bi bi-briefcase-fill me-1"></i>
 
-            </h2>
-
-            <p class="text-muted">
-
-                Descubre los principales campos de la Ingeniería
-                de Sistemas.
-
-            </p>
-
-        </div>
-
-
-        <div class="row g-4">
-
-
-            <!-- SOFTWARE -->
-
-            <div class="col-md-6 col-lg-4">
-
-                <div class="card service-card shadow-sm">
-
-                    <div class="icon">
-
-                        <i class="bi bi-code-slash"></i>
-
-                    </div>
-
-                    <h4>
-
-                        Desarrollo de Software
-
-                    </h4>
-
-                    <p class="text-muted">
-
-                        Diseño y desarrollo de aplicaciones web,
-                        móviles y sistemas empresariales.
-
-                    </p>
-
-                    <a href="#" class="text-decoration-none">
-
-                        Saber más →
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- IA -->
-
-            <div class="col-md-6 col-lg-4">
-
-                <div class="card service-card shadow-sm">
-
-                    <div class="icon">
-
-                        <i class="bi bi-robot"></i>
-
-                    </div>
-
-                    <h4>
-
-                        Inteligencia Artificial
-
-                    </h4>
-
-                    <p class="text-muted">
-
-                        Desarrollo de soluciones inteligentes utilizando
-                        Machine Learning y automatización.
-
-                    </p>
-
-                    <a href="#" class="text-decoration-none">
-
-                        Saber más →
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- CIBERSEGURIDAD -->
-
-            <div class="col-md-6 col-lg-4">
-
-                <div class="card service-card shadow-sm">
-
-                    <div class="icon">
-
-                        <i class="bi bi-shield-lock"></i>
-
-                    </div>
-
-                    <h4>
-
-                        Ciberseguridad
-
-                    </h4>
-
-                    <p class="text-muted">
-
-                        Protección de sistemas, aplicaciones,
-                        redes y datos contra amenazas digitales.
-
-                    </p>
-
-                    <a href="#" class="text-decoration-none">
-
-                        Saber más →
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- CLOUD -->
-
-            <div class="col-md-6 col-lg-4">
-
-                <div class="card service-card shadow-sm">
-
-                    <div class="icon">
-
-                        <i class="bi bi-cloud"></i>
-
-                    </div>
-
-                    <h4>
-
-                        Cloud Computing
-
-                    </h4>
-
-                    <p class="text-muted">
-
-                        Implementación de infraestructura y servicios
-                        tecnológicos en la nube.
-
-                    </p>
-
-                    <a href="#" class="text-decoration-none">
-
-                        Saber más →
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- DATOS -->
-
-            <div class="col-md-6 col-lg-4">
-
-                <div class="card service-card shadow-sm">
-
-                    <div class="icon">
-
-                        <i class="bi bi-bar-chart-line"></i>
-
-                    </div>
-
-                    <h4>
-
-                        Ciencia de Datos
-
-                    </h4>
-
-                    <p class="text-muted">
-
-                        Análisis de información para obtener
-                        conocimientos y tomar mejores decisiones.
-
-                    </p>
-
-                    <a href="#" class="text-decoration-none">
-
-                        Saber más →
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- REDES -->
-
-            <div class="col-md-6 col-lg-4">
-
-                <div class="card service-card shadow-sm">
-
-                    <div class="icon">
-
-                        <i class="bi bi-diagram-3"></i>
-
-                    </div>
-
-                    <h4>
-
-                        Redes y Sistemas
-
-                    </h4>
-
-                    <p class="text-muted">
-
-                        Diseño y administración de redes,
-                        servidores e infraestructura tecnológica.
-
-                    </p>
-
-                    <a href="#" class="text-decoration-none">
-
-                        Saber más →
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= ESTADISTICAS ================= -->
-
-<section class="statistics py-5">
-
-    <div class="container">
-
-        <div class="row text-center">
-
-
-            <div class="col-md-3 mb-4 mb-md-0">
-
-                <div class="number">
-
-                    +500
-
-                </div>
-
-                <p>
-
-                    Proyectos tecnológicos
-
-                </p>
-
-            </div>
-
-
-            <div class="col-md-3 mb-4 mb-md-0">
-
-                <div class="number">
-
-                    +1200
-
-                </div>
-
-                <p>
-
-                    Estudiantes
-
-                </p>
-
-            </div>
-
-
-            <div class="col-md-3 mb-4 mb-md-0">
-
-                <div class="number">
-
-                    +50
-
-                </div>
-
-                <p>
-
-                    Tecnologías
-
-                </p>
-
-            </div>
-
-
-            <div class="col-md-3">
-
-                <div class="number">
-
-                    100%
-
-                </div>
-
-                <p>
-
-                    Innovación
-
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= NOSOTROS ================= -->
-
-<section id="nosotros" class="py-5">
-
-    <div class="container py-5">
-
-        <div class="row align-items-center g-5">
-
-
-            <div class="col-lg-6">
-
-                <img
-                    src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1000&q=80"
-                    class="about-img shadow"
-                    alt="Ingeniería de Sistemas">
-
-            </div>
-
-
-            <div class="col-lg-6">
-
-                <span class="text-primary fw-bold">
-
-                    SOBRE LA CARRERA
+                  OPORTUNIDADES PROFESIONALES
 
                 </span>
 
 
-                <h2 class="section-title mt-2">
+                <h2 class="display-4 fw-bold mb-4">
 
-                    Construye el futuro con tecnología
+                  Da el siguiente paso
+                  en tu
+                  <span class="text-success">
+                    carrera
+                  </span>
 
                 </h2>
 
 
-                <p class="text-muted mt-3">
+                <p class="lead mb-4">
 
-                    La Ingeniería de Sistemas prepara profesionales
-                    capaces de analizar problemas, diseñar soluciones
-                    y utilizar la tecnología para transformar
-                    organizaciones.
+                  Encuentra ofertas de prácticas,
+                  empleos de medio tiempo y oportunidades
+                  para comenzar tu experiencia profesional.
 
                 </p>
 
 
-                <div class="mt-4">
+                <a
+                  href="/jobs?type=internship"
+                  class="btn btn-success btn-lg px-4">
 
+                  <i class="bi bi-mortarboard me-2"></i>
 
-                    <div class="d-flex mb-3">
+                  Ver prácticas
 
-                        <i class="bi bi-check-circle-fill
-                                  text-primary fs-4 me-3">
-                        </i>
+                </a>
 
-                        <span>
-                            Desarrollo de soluciones innovadoras
-                        </span>
-
-                    </div>
-
-
-                    <div class="d-flex mb-3">
-
-                        <i class="bi bi-check-circle-fill
-                                  text-primary fs-4 me-3">
-                        </i>
-
-                        <span>
-                            Formación en tecnologías modernas
-                        </span>
-
-                    </div>
-
-
-                    <div class="d-flex mb-3">
-
-                        <i class="bi bi-check-circle-fill
-                                  text-primary fs-4 me-3">
-                        </i>
-
-                        <span>
-                            Preparación para el mercado laboral
-                        </span>
-
-                    </div>
-
-
-                    <div class="d-flex">
-
-                        <i class="bi bi-check-circle-fill
-                                  text-primary fs-4 me-3">
-                        </i>
-
-                        <span>
-                            Innovación y transformación digital
-                        </span>
-
-                    </div>
-
-                </div>
+              </div>
 
             </div>
 
+          </div>
+
         </div>
 
+      </div>
+
+
+      <!-- =====================================================
+           SLIDE 3
+      ====================================================== -->
+
+      <div class="carousel-item">
+
+        <div
+          class="container-fluid"
+          style="
+            min-height: 600px;
+            background:
+              linear-gradient(
+                90deg,
+                rgba(0,0,0,.90),
+                rgba(0,0,0,.60),
+                rgba(0,0,0,.30)
+              ),
+              url('/assets/img/slider-3.jpg')
+              center/cover;
+          ">
+
+          <div
+            class="container d-flex align-items-center"
+            style="min-height: 600px;">
+
+            <div class="row w-100">
+
+              <div class="col-lg-7">
+
+                <span class="badge bg-success mb-3 px-3 py-2">
+
+                  <i class="bi bi-building me-1"></i>
+
+                  CONECTA CON EMPRESAS
+
+                </span>
+
+
+                <h2 class="display-4 fw-bold mb-4">
+
+                  Las empresas están
+                  buscando
+                  <span class="text-success">
+                    talento
+                  </span>
+
+                </h2>
+
+
+                <p class="lead mb-4">
+
+                  Crea tu perfil profesional y permite
+                  que las empresas encuentren tus
+                  habilidades y experiencia.
+
+                </p>
+
+
+                <a
+                  href="/register"
+                  class="btn btn-success btn-lg px-4">
+
+                  <i class="bi bi-person-plus me-2"></i>
+
+                  Crear mi perfil
+
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
+
+
+    <!-- Controles -->
+
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#heroCarousel"
+      data-bs-slide="prev">
+
+      <span class="carousel-control-prev-icon"></span>
+
+      <span class="visually-hidden">
+        Anterior
+      </span>
+
+    </button>
+
+
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#heroCarousel"
+      data-bs-slide="next">
+
+      <span class="carousel-control-next-icon"></span>
+
+      <span class="visually-hidden">
+        Siguiente
+      </span>
+
+    </button>
+
+  </div>
 
 </section>
 
 
 
-<!-- ================= CONTACTO / CTA ================= -->
+<!-- =========================================================
+     BUSCADOR DE OFERTAS
+========================================================= -->
 
-<section id="contacto" class="py-5">
+<section class="bg-light py-5">
 
-    <div class="container">
+  <div class="container">
 
-        <div class="cta text-center p-5">
+    <div class="text-center mb-4">
 
-            <h2 class="fw-bold">
+      <span class="text-success fw-bold text-uppercase">
 
-                ¿Listo para transformar el futuro?
+        Encuentra oportunidades
 
-            </h2>
+      </span>
 
-            <p class="mt-3">
 
-                Descubre todo lo que puedes lograr estudiando
-                Ingeniería de Sistemas.
+      <h2 class="fw-bold mt-2">
+
+        ¿Qué estás buscando?
+
+      </h2>
+
+
+      <p class="text-muted">
+
+        Busca ofertas laborales según tu carrera,
+        modalidad o tipo de empleo.
+
+      </p>
+
+    </div>
+
+
+    <div class="card border-0 shadow-sm">
+
+      <div class="card-body p-4">
+
+        <form
+          action="/jobs"
+          method="GET">
+
+          <div class="row g-3">
+
+
+            <!-- Buscar -->
+
+            <div class="col-12 col-lg-5">
+
+              <label class="form-label fw-semibold">
+
+                Palabras clave
+
+              </label>
+
+
+              <div class="input-group">
+
+                <span class="input-group-text bg-white">
+
+                  <i class="bi bi-search"></i>
+
+                </span>
+
+
+                <input
+                  type="text"
+                  class="form-control"
+                  name="search"
+                  placeholder="Ej. desarrollador, marketing, diseño...">
+
+              </div>
+
+            </div>
+
+
+            <!-- Tipo -->
+
+            <div class="col-12 col-md-6 col-lg-3">
+
+              <label class="form-label fw-semibold">
+
+                Tipo de oportunidad
+
+              </label>
+
+
+              <select
+                name="type"
+                class="form-select">
+
+                <option value="">
+                  Todas
+                </option>
+
+                <option value="internship">
+                  Prácticas profesionales
+                </option>
+
+                <option value="part-time">
+                  Medio tiempo
+                </option>
+
+                <option value="full-time">
+                  Tiempo completo
+                </option>
+
+                <option value="freelance">
+                  Freelance
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <!-- Modalidad -->
+
+            <div class="col-12 col-md-6 col-lg-2">
+
+              <label class="form-label fw-semibold">
+
+                Modalidad
+
+              </label>
+
+
+              <select
+                name="remote"
+                class="form-select">
+
+                <option value="">
+                  Todas
+                </option>
+
+                <option value="false">
+                  Presencial
+                </option>
+
+                <option value="true">
+                  Remoto
+                </option>
+
+                <option value="hybrid">
+                  Híbrido
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <!-- Botón -->
+
+            <div class="col-12 col-lg-2 d-flex align-items-end">
+
+              <button
+                type="submit"
+                class="btn btn-success w-100">
+
+                <i class="bi bi-search me-2"></i>
+
+                Buscar
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CATEGORÍAS
+========================================================= -->
+
+<section class="py-5">
+
+  <div class="container">
+
+    <div class="text-center mb-5">
+
+      <span class="text-success fw-bold text-uppercase">
+
+        Explora oportunidades
+
+      </span>
+
+
+      <h2 class="fw-bold mt-2">
+
+        Encuentra el trabajo ideal para ti
+
+      </h2>
+
+
+      <p class="text-muted">
+
+        Explora diferentes tipos de oportunidades
+        disponibles para estudiantes.
+
+      </p>
+
+    </div>
+
+
+    <div class="row g-4">
+
+
+      <!-- Prácticas -->
+
+      <div class="col-12 col-md-6 col-lg-3">
+
+        <a
+          href="/jobs?type=internship"
+          class="text-decoration-none">
+
+          <div
+            class="card border-0 shadow-sm h-100
+                   text-center">
+
+            <div class="card-body p-4">
+
+              <div
+                class="bg-success bg-opacity-10
+                       text-success rounded-circle
+                       d-inline-flex
+                       align-items-center
+                       justify-content-center mb-3"
+                style="width:70px;height:70px;">
+
+                <i class="bi bi-mortarboard fs-2"></i>
+
+              </div>
+
+
+              <h5 class="fw-bold">
+
+                Prácticas
+
+              </h5>
+
+
+              <p class="text-muted small mb-0">
+
+                Gana experiencia profesional
+                mientras estudias.
+
+              </p>
+
+            </div>
+
+          </div>
+
+        </a>
+
+      </div>
+
+
+      <!-- Medio tiempo -->
+
+      <div class="col-12 col-md-6 col-lg-3">
+
+        <a
+          href="/jobs?type=part-time"
+          class="text-decoration-none">
+
+          <div
+            class="card border-0 shadow-sm h-100
+                   text-center">
+
+            <div class="card-body p-4">
+
+              <div
+                class="bg-primary bg-opacity-10
+                       text-primary rounded-circle
+                       d-inline-flex
+                       align-items-center
+                       justify-content-center mb-3"
+                style="width:70px;height:70px;">
+
+                <i class="bi bi-clock fs-2"></i>
+
+              </div>
+
+
+              <h5 class="fw-bold text-dark">
+
+                Medio tiempo
+
+              </h5>
+
+
+              <p class="text-muted small mb-0">
+
+                Trabaja y continúa con tus
+                estudios universitarios.
+
+              </p>
+
+            </div>
+
+          </div>
+
+        </a>
+
+      </div>
+
+
+      <!-- Remoto -->
+
+      <div class="col-12 col-md-6 col-lg-3">
+
+        <a
+          href="/jobs?remote=true"
+          class="text-decoration-none">
+
+          <div
+            class="card border-0 shadow-sm h-100
+                   text-center">
+
+            <div class="card-body p-4">
+
+              <div
+                class="bg-info bg-opacity-10
+                       text-info rounded-circle
+                       d-inline-flex
+                       align-items-center
+                       justify-content-center mb-3"
+                style="width:70px;height:70px;">
+
+                <i class="bi bi-house-laptop fs-2"></i>
+
+              </div>
+
+
+              <h5 class="fw-bold text-dark">
+
+                Trabajo remoto
+
+              </h5>
+
+
+              <p class="text-muted small mb-0">
+
+                Encuentra oportunidades
+                desde cualquier lugar.
+
+              </p>
+
+            </div>
+
+          </div>
+
+        </a>
+
+      </div>
+
+
+      <!-- Tiempo completo -->
+
+      <div class="col-12 col-md-6 col-lg-3">
+
+        <a
+          href="/jobs?type=full-time"
+          class="text-decoration-none">
+
+          <div
+            class="card border-0 shadow-sm h-100
+                   text-center">
+
+            <div class="card-body p-4">
+
+              <div
+                class="bg-warning bg-opacity-10
+                       text-warning rounded-circle
+                       d-inline-flex
+                       align-items-center
+                       justify-content-center mb-3"
+                style="width:70px;height:70px;">
+
+                <i class="bi bi-briefcase fs-2"></i>
+
+              </div>
+
+
+              <h5 class="fw-bold text-dark">
+
+                Tiempo completo
+
+              </h5>
+
+
+              <p class="text-muted small mb-0">
+
+                Da el siguiente paso
+                en tu carrera profesional.
+
+              </p>
+
+            </div>
+
+          </div>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     OFERTAS DESTACADAS
+========================================================= -->
+
+<section class="bg-light py-5">
+
+  <div class="container">
+
+    <div
+      class="d-flex flex-column flex-md-row
+             justify-content-between
+             align-items-md-center mb-4">
+
+      <div>
+
+        <span class="text-success fw-bold text-uppercase">
+
+          Oportunidades
+
+        </span>
+
+
+        <h2 class="fw-bold mt-2 mb-1">
+
+          Ofertas destacadas
+
+        </h2>
+
+
+        <p class="text-muted mb-0">
+
+          Descubre algunas de las oportunidades
+          disponibles actualmente.
+
+        </p>
+
+      </div>
+
+
+      <a
+        href="/jobs"
+        class="btn btn-outline-success mt-3 mt-md-0">
+
+        Ver todas
+
+        <i class="bi bi-arrow-right ms-2"></i>
+
+      </a>
+
+    </div>
+
+
+    <div class="row g-4">
+
+
+      <!-- Oferta 1 -->
+
+      <div class="col-12 col-md-6 col-lg-4">
+
+        <div class="card border-0 shadow-sm h-100">
+
+          <div class="card-body p-4">
+
+
+            <div
+              class="d-flex justify-content-between
+                     align-items-start mb-3">
+
+              <div
+                class="bg-success bg-opacity-10
+                       text-success rounded-3
+                       p-3">
+
+                <i class="bi bi-code-slash fs-3"></i>
+
+              </div>
+
+
+              <span class="badge bg-success-subtle text-success">
+
+                Prácticas
+
+              </span>
+
+            </div>
+
+
+            <h5 class="fw-bold">
+
+              Desarrollador Web Junior
+
+            </h5>
+
+
+            <p class="text-muted mb-2">
+
+              <i class="bi bi-building me-1"></i>
+
+              Empresa tecnológica
 
             </p>
 
 
-            <a href="#"
-               class="btn btn-light btn-lg mt-3">
+            <p class="text-muted small">
 
-                Contáctanos
+              Participa en el desarrollo de aplicaciones
+              web y adquiere experiencia trabajando
+              junto a un equipo profesional.
+
+            </p>
+
+
+            <div class="small text-muted mb-3">
+
+              <span class="me-3">
+
+                <i class="bi bi-geo-alt me-1"></i>
+                Lima
+
+              </span>
+
+
+              <span>
+
+                <i class="bi bi-house-laptop me-1"></i>
+                Híbrido
+
+              </span>
+
+            </div>
+
+
+            <a
+              href="/jobs"
+              class="btn btn-outline-success w-100">
+
+              Ver oferta
 
             </a>
 
+          </div>
+
         </div>
 
+      </div>
+
+
+      <!-- Oferta 2 -->
+
+      <div class="col-12 col-md-6 col-lg-4">
+
+        <div class="card border-0 shadow-sm h-100">
+
+          <div class="card-body p-4">
+
+
+            <div
+              class="d-flex justify-content-between
+                     align-items-start mb-3">
+
+              <div
+                class="bg-primary bg-opacity-10
+                       text-primary rounded-3
+                       p-3">
+
+                <i class="bi bi-bar-chart-line fs-3"></i>
+
+              </div>
+
+
+              <span class="badge bg-primary-subtle text-primary">
+
+                Medio tiempo
+
+              </span>
+
+            </div>
+
+
+            <h5 class="fw-bold">
+
+              Asistente de Datos
+
+            </h5>
+
+
+            <p class="text-muted mb-2">
+
+              <i class="bi bi-building me-1"></i>
+
+              Empresa de servicios
+
+            </p>
+
+
+            <p class="text-muted small">
+
+              Apoya en el análisis de información,
+              elaboración de reportes y gestión
+              de bases de datos.
+
+            </p>
+
+
+            <div class="small text-muted mb-3">
+
+              <span class="me-3">
+
+                <i class="bi bi-geo-alt me-1"></i>
+                Lima
+
+              </span>
+
+
+              <span>
+
+                <i class="bi bi-building me-1"></i>
+                Presencial
+
+              </span>
+
+            </div>
+
+
+            <a
+              href="/jobs"
+              class="btn btn-outline-success w-100">
+
+              Ver oferta
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Oferta 3 -->
+
+      <div class="col-12 col-md-6 col-lg-4">
+
+        <div class="card border-0 shadow-sm h-100">
+
+          <div class="card-body p-4">
+
+
+            <div
+              class="d-flex justify-content-between
+                     align-items-start mb-3">
+
+              <div
+                class="bg-warning bg-opacity-10
+                       text-warning rounded-3
+                       p-3">
+
+                <i class="bi bi-megaphone fs-3"></i>
+
+              </div>
+
+
+              <span class="badge bg-warning-subtle text-warning">
+
+                Remoto
+
+              </span>
+
+            </div>
+
+
+            <h5 class="fw-bold">
+
+              Practicante de Marketing
+
+            </h5>
+
+
+            <p class="text-muted mb-2">
+
+              <i class="bi bi-building me-1"></i>
+
+              Agencia Creativa
+
+            </p>
+
+
+            <p class="text-muted small">
+
+              Participa en campañas digitales,
+              creación de contenido y estrategias
+              de marketing.
+
+            </p>
+
+
+            <div class="small text-muted mb-3">
+
+              <span class="me-3">
+
+                <i class="bi bi-globe me-1"></i>
+                Remoto
+
+              </span>
+
+
+              <span>
+
+                <i class="bi bi-clock me-1"></i>
+                Part-time
+
+              </span>
+
+            </div>
+
+
+            <a
+              href="/jobs"
+              class="btn btn-outline-success w-100">
+
+              Ver oferta
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
+
+  </div>
 
 </section>
 
 
 
-<!-- ================= FOOTER ================= -->
+<!-- =========================================================
+     CÓMO FUNCIONA
+========================================================= -->
 
-<footer class="py-4">
+<section class="py-5">
 
-    <div class="container">
+  <div class="container">
 
-        <div class="row align-items-center">
+    <div class="text-center mb-5">
+
+      <span class="text-success fw-bold text-uppercase">
+
+        Es muy sencillo
+
+      </span>
 
 
-            <div class="col-md-6">
+      <h2 class="fw-bold mt-2">
 
-                <h5 class="text-white">
+        ¿Cómo funciona UniEmpleo?
 
-                    <i class="bi bi-cpu"></i>
+      </h2>
 
-                    Ingeniería de Sistemas
 
-                </h5>
+      <p class="text-muted">
 
-                <p class="mb-0">
+        Encuentra tu próxima oportunidad
+        en tres simples pasos.
 
-                    Tecnología para transformar el futuro.
+      </p>
 
-                </p>
+    </div>
+
+
+    <div class="row g-4">
+
+
+      <!-- Paso 1 -->
+
+      <div class="col-12 col-md-4">
+
+        <div class="text-center px-3">
+
+          <div
+            class="bg-success text-white rounded-circle
+                   d-inline-flex align-items-center
+                   justify-content-center mb-4"
+            style="width:75px;height:75px;">
+
+            <span class="fs-3 fw-bold">
+              1
+            </span>
+
+          </div>
+
+
+          <h5 class="fw-bold">
+
+            Crea tu perfil
+
+          </h5>
+
+
+          <p class="text-muted">
+
+            Regístrate y completa tu información
+            académica, habilidades y experiencia.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- Paso 2 -->
+
+      <div class="col-12 col-md-4">
+
+        <div class="text-center px-3">
+
+          <div
+            class="bg-success text-white rounded-circle
+                   d-inline-flex align-items-center
+                   justify-content-center mb-4"
+            style="width:75px;height:75px;">
+
+            <span class="fs-3 fw-bold">
+              2
+            </span>
+
+          </div>
+
+
+          <h5 class="fw-bold">
+
+            Encuentra una oferta
+
+          </h5>
+
+
+          <p class="text-muted">
+
+            Explora oportunidades y utiliza filtros
+            para encontrar aquellas que se adapten
+            a tu perfil.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- Paso 3 -->
+
+      <div class="col-12 col-md-4">
+
+        <div class="text-center px-3">
+
+          <div
+            class="bg-success text-white rounded-circle
+                   d-inline-flex align-items-center
+                   justify-content-center mb-4"
+            style="width:75px;height:75px;">
+
+            <span class="fs-3 fw-bold">
+              3
+            </span>
+
+          </div>
+
+
+          <h5 class="fw-bold">
+
+            Postúlate
+
+          </h5>
+
+
+          <p class="text-muted">
+
+            Envía tu candidatura y comienza
+            tu proceso para conseguir una
+            oportunidad profesional.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     BENEFICIOS
+========================================================= -->
+
+<section class="bg-dark text-white py-5">
+
+  <div class="container">
+
+    <div class="row align-items-center g-5">
+
+
+      <!-- Texto -->
+
+      <div class="col-lg-6">
+
+        <span class="badge bg-success mb-3">
+
+          PARA ESTUDIANTES
+
+        </span>
+
+
+        <h2 class="display-6 fw-bold mb-4">
+
+          Construye tu experiencia
+          mientras estudias.
+
+        </h2>
+
+
+        <p class="text-secondary lead">
+
+          UniEmpleo te ayuda a conectar tu formación
+          universitaria con el mundo profesional.
+
+        </p>
+
+
+        <a
+          href="/register"
+          class="btn btn-success mt-3">
+
+          <i class="bi bi-person-plus me-2"></i>
+
+          Crear mi perfil
+
+        </a>
+
+      </div>
+
+
+      <!-- Beneficios -->
+
+      <div class="col-lg-6">
+
+        <div class="row g-3">
+
+
+          <div class="col-12 col-sm-6">
+
+            <div
+              class="p-4 border border-secondary
+                     rounded-3 h-100">
+
+              <i
+                class="bi bi-search text-success fs-1">
+              </i>
+
+
+              <h5 class="fw-bold mt-3">
+
+                Encuentra oportunidades
+
+              </h5>
+
+
+              <p class="text-secondary small mb-0">
+
+                Busca ofertas según tu carrera,
+                habilidades y preferencias.
+
+              </p>
 
             </div>
 
+          </div>
 
-            <div class="col-md-6 text-md-end mt-3 mt-md-0">
 
-                <a href="#"
-                   class="text-secondary fs-4 me-3">
+          <div class="col-12 col-sm-6">
 
-                    <i class="bi bi-facebook"></i>
+            <div
+              class="p-4 border border-secondary
+                     rounded-3 h-100">
 
-                </a>
+              <i
+                class="bi bi-person-badge text-success fs-1">
+              </i>
 
-                <a href="#"
-                   class="text-secondary fs-4 me-3">
 
-                    <i class="bi bi-instagram"></i>
+              <h5 class="fw-bold mt-3">
 
-                </a>
+                Perfil profesional
 
-                <a href="#"
-                   class="text-secondary fs-4">
+              </h5>
 
-                    <i class="bi bi-github"></i>
 
-                </a>
+              <p class="text-secondary small mb-0">
+
+                Presenta tus conocimientos,
+                habilidades y experiencia.
+
+              </p>
 
             </div>
+
+          </div>
+
+
+          <div class="col-12 col-sm-6">
+
+            <div
+              class="p-4 border border-secondary
+                     rounded-3 h-100">
+
+              <i
+                class="bi bi-send-check text-success fs-1">
+              </i>
+
+
+              <h5 class="fw-bold mt-3">
+
+                Postulación sencilla
+
+              </h5>
+
+
+              <p class="text-secondary small mb-0">
+
+                Postúlate a oportunidades desde
+                una misma plataforma.
+
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="col-12 col-sm-6">
+
+            <div
+              class="p-4 border border-secondary
+                     rounded-3 h-100">
+
+              <i
+                class="bi bi-building-check text-success fs-1">
+              </i>
+
+
+              <h5 class="fw-bold mt-3">
+
+                Empresas
+
+              </h5>
+
+
+              <p class="text-secondary small mb-0">
+
+                Conecta directamente con empresas
+                que buscan talento universitario.
+
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PARA EMPRESAS
+========================================================= -->
+
+<section class="py-5">
+
+  <div class="container">
+
+    <div
+      class="bg-success rounded-4 p-4 p-md-5
+             text-white">
+
+      <div class="row align-items-center">
+
+
+        <div class="col-lg-8">
+
+          <span class="badge bg-white text-success mb-3">
+
+            PARA EMPRESAS
+
+          </span>
+
+
+          <h2 class="fw-bold">
+
+            Encuentra el talento que necesitas
+
+          </h2>
+
+
+          <p class="mb-0">
+
+            Publica tus ofertas laborales y conecta
+            con estudiantes universitarios que buscan
+            desarrollar su carrera profesional.
+
+          </p>
 
         </div>
 
 
-        <hr class="border-secondary my-4">
+        <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
 
+          <a
+            href="/register/company"
+            class="btn btn-light btn-lg">
 
-        <p class="text-center mb-0">
+            <i class="bi bi-building-add me-2"></i>
 
-            © 2026 Ingeniería de Sistemas.
-            Todos los derechos reservados.
+            Publicar una oferta
 
-        </p>
+          </a>
+
+        </div>
+
+      </div>
 
     </div>
 
-</footer>
+  </div>
+
+</section>
 
 
 
-<!-- Bootstrap JS -->
+<!-- =========================================================
+     CTA FINAL
+========================================================= -->
 
-<script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-</script>
+<section class="bg-light py-5">
+
+  <div class="container text-center">
+
+    <i
+      class="bi bi-rocket-takeoff text-success"
+      style="font-size: 3rem;">
+    </i>
 
 
-</body>
+    <h2 class="fw-bold mt-3">
 
-</html>
+      Tu próxima oportunidad puede estar aquí
+
+    </h2>
+
+
+    <p class="text-muted lead mb-4">
+
+      Crea tu perfil y comienza a explorar
+      oportunidades laborales.
+
+    </p>
+
+
+    <div class="d-flex justify-content-center
+                flex-wrap gap-2">
+
+      <a
+        href="/jobs"
+        class="btn btn-success btn-lg px-4">
+
+        <i class="bi bi-search me-2"></i>
+
+        Buscar ofertas
+
+      </a>
+
+      <a
+        href="/register"
+        class="btn btn-outline-dark btn-lg px-4">
+
+        <i class="bi bi-person-plus me-2"></i>
+
+        Registrarme
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>

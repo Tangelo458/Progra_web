@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pequeña página web</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="/assets/css/login.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-12 col-sm-10 col-md-6 col-lg-5 col-xl-4">
+
+                <div class="form bg-opacity-90 p-4 mt-5 rounded">
+
+                    <!-- Logo -->
+                    <div class="text-center mb-4">
+
+                        <img
+                            src="/assets/img/ulimaLogo.png"
+                            height="50"
+                            width="203"
+                            alt="Logo Universidad de Lima"
+                            class="img-fluid"
+                        >
+
+                    </div>
+
+                    <!-- Formulario -->
+                    <form>
+
+                        <!-- Usuario -->
+                        <div class="mb-3">
+
+                            <label for="txtUser" class="form-label">
+                                Usuario
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="user"
+                                id="txtUser"
+                                placeholder="Nombre de usuario"
+                            >
+
+                        </div>
+
+                        <!-- Contraseña -->
+                        <div class="mb-3">
+
+                            <label for="txtPassword" class="form-label">
+                                Contraseña
+                            </label>
+
+                            <input
+                                type="password"
+                                class="form-control"
+                                name="password"
+                                id="txtPassword"
+                                placeholder="Ingrese su contraseña"
+                            >
+
+                        </div>
+
+                        <!-- Botón -->
+                        <div class="d-grid mb-3">
+
+                            <button
+                                type="submit"
+                                class="btn btn-dark"
+                            >
+                                Iniciar sesión
+                            </button>
+
+                        </div>
+
+                        <!-- Recuperar contraseña -->
+                        <div class="text-center mb-4">
+
+                            <a href="reset-password.html">
+                                ¿Has olvidado tu contraseña?
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                    <!-- Comunicado -->
+                    <div class="bg-secondary bg-opacity-25 p-3 rounded">
+
+                        <h3 class="text-center">
+                            Comunicado
+                        </h3>
+
+                        <p class="mb-0">
+
+                            Estimados usuarios de la comunidad ULima:<br><br>
+
+                            Para resolver sus consultas sobre las plataformas
+                            Blackboard y Zoom, ponemos a su disposición los
+                            siguientes canales de atención:<br><br>
+
+                            Correo electrónico: soporteaulas@ulima.edu.pe<br>
+                            Teléfono: 01 437 8800<br>
+                            Anexo (en campus): 500<br>
+                            Presencial: Sótano Edificio L2.<br>
+                            Horario: Lunes a viernes 7-22hrs,
+                            Sábados 7-13hrs
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

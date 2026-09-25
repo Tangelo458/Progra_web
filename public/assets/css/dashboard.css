@@ -1,0 +1,62 @@
+.navbar-custom {
+    background-color: #E84816;
+}
+
+/* Letras negras */
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+    color: #000000;
+}
+
+/* Efecto al pasar el mouse */
+.navbar-custom .nav-link:hover {
+    color: #ffffff;
+}
+
+/* Botón del menú móvil */
+.navbar-custom .navbar-toggler {
+    border-color: #000000;
+}
+
+.navbar-custom .navbar-toggler-icon {
+    filter: brightness(0);
+}
+
+/* Botón Editar perfil */
+.btn-editar {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+}
+
+.btn-editar:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Botón Cerrar sesión */
+.btn-cerrar {
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #000000;
+}
+
+.btn-cerrar:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Dropdown */
+.navbar-custom .dropdown-menu {
+    background-color: #ffffff;
+}
+
+.navbar-custom .dropdown-item {
+    color: #000000;
+}
+
+.navbar-custom .dropdown-item:hover {
+    background-color: #E84816;
+    color: #000000;
+}
+

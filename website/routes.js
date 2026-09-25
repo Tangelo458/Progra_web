@@ -7,7 +7,10 @@ import { redirectIfAuthenticated, requireAuth } from '../configs/middlewares.js'
 const router = Router();
 
 router.get('/', controller.home);
+router.get('/login', controller.login);
+router.get('/jobs', controller.jobs);
 router.get('/about', controller.about);
+router.get('/reset-password', controller.resetPassword);
 router.get('/contact', controller.contact);
 router.get('/players', controller.players);
 router.get('/sign-in', controller.signIn);

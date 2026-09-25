@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Cuadro principal */
+.form {
+    width: 385px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Campos Usuario y Contraseña */
+.form-control {
+    border: 1px solid #000000;
+}
+
+/* Opcional: mantener el borde negro cuando haces clic */
+.form-control:focus {
+    border: 1px solid #000000;
+    box-shadow: 0 0 0 0.15rem rgba(0, 0, 0, 0.15);
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    background-image: var(--fondo);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: 1;
+    transition: opacity 0.8s ease-in-out;
+}
+

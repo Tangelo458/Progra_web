@@ -67,3 +67,44 @@ npm install -g vercel
 vercel login
 vercel --prod
 
+
+
+==========================================
+CONFIGURACIÓN E INICIALIZACIÓN
+==========================================
+Configurar identidad (solo la primera vez)
+git config --global user.name "Tu Nombre"
+git config --global user.email "tu@email.com"
+
+Inicializar un nuevo repositorio Git en la carpeta actual
+git init
+
+Vincular la URL remota mediante SSH
+git remote add origin git@github.com:jovaldiv-ops/pw-2026-2.git
+
+Opcional: Si necesitaras cambiar la URL remota en el futuro, usarías:
+git remote set-url origin git@github.com:Tangelo458/Progra_web.git
+
+==========================================
+SEGUIMIENTO Y CONFIRMACIÓN DE CAMBIOS
+==========================================
+Ver el estado actual de los archivos (nuevos, modificados)
+git status
+
+Añadir todos los archivos al área de preparación (staging)
+git add .
+
+Guardar los cambios en el historial local con un mensaje
+git commit -m "Trabajo del dia Viernes 4/9/2026 (S2 - D2) - Cambios en el login, uso de CSS y creación de dashboard.html"
+
+Verificar el historial de commits creados
+git log --oneline
+
+
+==========================================
+SINCRONIZACIÓN Y ENVÍO A GITHUB
+==========================================
+Descargar y fusionar cambios del repositorio remoto si los hay
+git push -u origin master
+git pull origin master
+fgwedfg

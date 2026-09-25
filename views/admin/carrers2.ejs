@@ -1,0 +1,433 @@
+<!-- views/admin/carrers.ejs -->
+<% layout("layouts/admin") %>
+
+<div class="container-fluid px-4 py-4">
+
+  <!-- ================================= -->
+  <!-- ENCABEZADO -->
+  <!-- ================================= -->
+
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
+
+    <div>
+      <h2 class="fw-bold mb-1">
+        Gestión de carreras
+      </h2>
+
+      <p class="text-secondary mb-0">
+        Administra las carreras universitarias de tu institución.
+      </p>
+    </div>
+
+    <div class="mt-3 mt-md-0">
+      <span class="badge rounded-pill text-bg-primary px-3 py-2 fs-6">
+        🎓 <%= carrers.length %> carreras
+      </span>
+    </div>
+
+  </div>
+
+
+  <!-- ================================= -->
+  <!-- RESUMEN -->
+  <!-- ================================= -->
+
+  <div class="row g-3 mb-4">
+
+    <!-- Total -->
+    <div class="col-sm-6 col-xl-3">
+
+      <div class="card border-0 shadow-sm h-100">
+        <div class="card-body p-4">
+
+          <div class="d-flex justify-content-between align-items-start">
+
+            <div>
+              <p class="text-secondary mb-1">
+                Total de carreras
+              </p>
+
+              <h3 class="fw-bold mb-0">
+                <%= carrers.length %>
+              </h3>
+            </div>
+
+            <div class="bg-primary-subtle text-primary rounded-3 p-3 fs-4">
+              🎓
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- Estado -->
+    <div class="col-sm-6 col-xl-3">
+
+      <div class="card border-0 shadow-sm h-100">
+        <div class="card-body p-4">
+
+          <div class="d-flex justify-content-between align-items-start">
+
+            <div>
+              <p class="text-secondary mb-1">
+                Estado
+              </p>
+
+              <h5 class="fw-bold mb-0 text-success">
+                Activo
+              </h5>
+            </div>
+
+            <div class="bg-success-subtle text-success rounded-3 p-3 fs-4">
+              ✓
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================================= -->
+  <!-- CONTENIDO PRINCIPAL -->
+  <!-- ================================= -->
+
+  <div class="row g-4">
+
+
+    <!-- ================================= -->
+    <!-- FORMULARIO -->
+    <!-- ================================= -->
+
+    <div class="col-12 col-xl-4">
+
+      <div class="card border-0 shadow-sm h-100">
+
+        <!-- Cabecera -->
+        <div class="card-body p-4">
+
+          <div class="d-flex align-items-center mb-4">
+
+            <div
+              class="bg-primary text-white rounded-3 d-flex align-items-center justify-content-center me-3"
+              style="width: 48px; height: 48px;"
+            >
+              <span class="fs-4">+</span>
+            </div>
+
+            <div>
+              <h5 class="fw-bold mb-1">
+                Nueva carrera
+              </h5>
+
+              <small class="text-secondary">
+                Registrar una carrera
+              </small>
+            </div>
+
+          </div>
+
+
+          <form>
+
+            <!-- Nombre -->
+            <div class="mb-4">
+
+              <label
+                for="name"
+                class="form-label fw-semibold"
+              >
+                Nombre de la carrera
+              </label>
+
+              <div class="input-group input-group-lg">
+
+                <span class="input-group-text bg-light border-end-0">
+                  🎓
+                </span>
+
+                <input
+                  type="text"
+                  class="form-control bg-light border-start-0"
+                  id="name"
+                  name="name"
+                  maxlength="30"
+                  placeholder="Ej. Ingeniería de Sistemas"
+                  required
+                >
+
+              </div>
+
+              <div class="form-text">
+                Ingresa el nombre completo de la carrera.
+              </div>
+
+            </div>
+
+
+            <!-- Separador -->
+            <hr class="my-4">
+
+
+            <!-- Botones -->
+            <div class="d-grid gap-2">
+
+            <button
+              type="submit"
+              class="btn btn-success"
+              id="btnGuardar"
+            onclick="agregar(event)"
+            >
+                Guardar carrera
+              </button>
+
+              <button
+                type="reset"
+                class="btn btn-light border"
+              >
+                Limpiar formulario
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- TABLA -->
+    <!-- ================================= -->
+
+    <div class="col-12 col-xl-8">
+
+      <div class="card border-0 shadow-sm">
+
+        <!-- Header -->
+        <div class="card-body p-4 border-bottom">
+
+          <div class="d-flex justify-content-between align-items-center">
+
+            <div>
+
+              <h5 class="fw-bold mb-1">
+                Carreras registradas
+              </h5>
+
+              <small class="text-secondary">
+                Listado de carreras universitarias
+              </small>
+
+            </div>
+
+            <span class="badge bg-primary-subtle text-primary rounded-pill px-3 py-2">
+              <%= carrers.length %>
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- Tabla -->
+        <div class="card-body p-0">
+
+          <div class="table-responsive">
+
+            <table class="table table-hover align-middle mb-0" id="carrers">
+
+              <thead class="bg-light" >
+
+                <tr>
+
+                  <th
+                    class="ps-4 py-3 text-secondary small text-uppercase"
+                    style="width: 100px;"
+                  >
+                    ID
+                  </th>
+
+                  <th class="py-3 text-secondary small text-uppercase">
+                    Carrera
+                  </th>
+
+                </tr>
+
+              </thead>
+
+
+              <tbody>
+
+                <% if (carrers.length === 0) { %>
+
+                  <tr>
+
+                    <td colspan="2">
+
+                      <div class="text-center py-5 px-3">
+
+                        <div
+                          class="bg-primary-subtle text-primary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center"
+                          style="width: 70px; height: 70px;"
+                        >
+                          <span class="fs-2">
+                            🎓
+                          </span>
+                        </div>
+
+                        <h5 class="fw-bold">
+                          No hay carreras todavía
+                        </h5>
+
+                        <p class="text-secondary mb-0">
+                          Utiliza el formulario para registrar la primera carrera.
+                        </p>
+
+                      </div>
+
+                    </td>
+
+                  </tr>
+
+                <% } else { %>
+
+
+                  <% for (const carrer of carrers) { %>
+
+                    <tr>
+
+                      <!-- ID -->
+                      <td class="ps-4">
+
+                        <span
+                          class="badge rounded-pill bg-light text-dark border px-3 py-2"
+                        >
+                          #<%= carrer.id %>
+                        </span>
+
+                      </td>
+
+
+                      <!-- Nombre -->
+                      <td>
+
+                        <div class="d-flex align-items-center">
+
+                          <div
+                            class="bg-primary-subtle text-primary rounded-3 d-flex align-items-center justify-content-center me-3"
+                            style="width: 40px; height: 40px;"
+                          >
+                            🎓
+                          </div>
+
+                          <div>
+
+                            <div class="fw-semibold">
+                              <%= carrer.name %>
+                            </div>
+
+                            <small class="text-secondary">
+                              Carrera universitaria
+                            </small>
+
+                          </div>
+
+                        </div>
+
+                      </td>
+
+                    </tr>
+
+                  <% } %>
+
+                <% } %>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+
+        <!-- Footer -->
+        <% if (carrers.length > 0) { %>
+
+          <div class="card-footer bg-white border-top p-3">
+
+            <small class="text-secondary">
+              Mostrando
+              <strong><%= carrers.length %></strong>
+              carreras registradas
+            </small>
+
+          </div>
+
+        <% } %>
+
+      </div>
+
+    </div>
+
+  </div>
+  
+<script>
+
+    let carrerRows = document.getElementById("carrers").children[1].children.length;
+
+    function agregar(event){    
+
+        event.preventDefault();
+
+        let name = document.getElementById("name").value; 
+        let carrerTable = document.getElementById("carrers");
+
+        let tr = document.createElement("TR");
+        let td1 = document.createElement("TD");
+        let td2 = document.createElement("TD");
+        let td3 = document.createElement("TD");
+        
+
+        carrerRows = carrerRows + 1
+        td1.innerHTML = carrerRows;
+        td2.innerHTML = name;
+
+        
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+
+        console.log(tr);
+
+        carrerTable.children[1].appendChild(tr);
+
+    }
+
+    function eliminar(id, event){
+        let td = event.currentTarget.parentElement.parentElement;
+        td.remove();
+
+    }
+
+    function editar(id, event){
+        let tr = event.currentTarget.parentElement.parentElement;
+        let idRow = tr.children[0].innerHTML;
+        let name = tr.children[1].innerHTML;
+        
+        document.getElementById("name").value = name;
+
+    }
+</script>
+</div>
