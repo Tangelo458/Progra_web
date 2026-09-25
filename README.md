@@ -107,4 +107,3 @@ SINCRONIZACIÓN Y ENVÍO A GITHUB
 Descargar y fusionar cambios del repositorio remoto si los hay
 git push -u origin master
 git pull origin master
-fgwedfg
